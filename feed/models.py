@@ -7,6 +7,10 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
+    class Meta:
+        verbose_name_plural = "Categories"
+   
+
 class Blob(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     text = models.TextField()
@@ -17,13 +21,11 @@ class Blob(models.Model):
     photo = models.ImageField(upload_to='blob_images', blank=True)
 
     # Maximum of 4 choices if blank then is used as a normal text
-    first_choice = models.ForeignKey('self')
-    second_choice = models.ForeignKey('self', blank=True)
-    third_choice = models.ForeignKey('self', blank=True)
-    fourth_choice = models.ForeignKey('self', blank=True)
+    first_choice = models.ForeignKey('self', default=0, null=True, on_delete=models.SET_NULL, related_name='first_choices', blank=True)
+    second_choice = models.ForeignKey('self', default=0, null=True,on_delete=models.SET_NULL, related_name='second_choices', blank=True)
+    third_choice = models.ForeignKey('self', default=0, null=True,on_delete=models.SET_NULL, related_name='third_choices', blank=True)
+    fourth_choice = models.ForeignKey('self', default=0, null=True, on_delete=models.SET_NULL, related_name='fourth_choices', blank=True)
 
     def __str__(self):
         return self.text
 
-# class Heros(models.Model):
-#     name = 
