@@ -7,6 +7,9 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
+    def get_blobs(self):
+        return self.category_set.all()
+
     class Meta:
         verbose_name_plural = "Categories"
    
@@ -28,4 +31,3 @@ class Blob(models.Model):
 
     def __str__(self):
         return self.text
-
