@@ -2,11 +2,21 @@ body, body * {
     font-family: 'VT323', monospace;
 }
 
-.container {
+::-webkit-scrollbar {
+    display: none;
+}
 
+.container {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 /* Start navigation */
+.navbar{ 
+    background: linear-gradient(0deg, white 40%, rgba(255,255,255,0.2)) no-repeat;
+}
 .navbar-nav {
     padding: 0 25px 0 25px;
 }
@@ -28,12 +38,29 @@ body, body * {
 }
 /* End navigation */
 
-/* Start email block */
-.email-block-center {
+/* Start about */
+.text-block-center {
     font-size: 30px;
     text-align: center;
+    top: 50%;
+    margin: 5% 25% 5% 25%;
 }
-.email-block-text {
+
+.text-block-center span{
+    color:white;
+    background-color: #DC143C;
+}
+
+/* End about */
+
+/* Start email block */
+.block-center {
+    font-size: 30px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .email-block-email {
     color: black;
