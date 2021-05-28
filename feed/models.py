@@ -31,3 +31,7 @@ class Blob(models.Model):
 
     def __str__(self):
         return self.text
+
+class User(models.Model):
+    nickname = models.CharField(max_length=255)
+    score = models.IntegerField()  

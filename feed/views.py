@@ -9,3 +9,9 @@ def contact(request):
 
 def about(request):
     return render(request, 'feed/about.html', {})
+
+def ranking(request):
+    return render(request, 'feed/ranking.html', {})
+
+def architect(request):
+    return render(request, 'feed/architect.html', {})
