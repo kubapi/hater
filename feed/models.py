@@ -7,12 +7,11 @@ class Deck(models.Model):
     def __str__(self):
         return self.deck_name
 
-    def get_decs(self):
-        return self.deck_set.all()
+    def get_cards(self):
+        return self.card_set.all()
 
     class Meta:
         verbose_name_plural = "Decks"
-   
 
 class Card(models.Model):
     deck = models.ForeignKey(Deck, on_delete = models.CASCADE)
@@ -49,6 +48,8 @@ class User(models.Model):
     nickname = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     score = models.IntegerField()
+
+    # Add decks finished
 
     def __str__(self):
         return self.nickname

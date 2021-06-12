@@ -8,5 +8,27 @@
         <p>
             Zdrowa grywalizacja! Zobacz jak sobie poradziłeś!
         </p>
+        {% if users_scores %}
+            <table id="ranking_table" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Miejsce</th>
+                        <th>Pseudonim</th>
+                        <th>Miasto</th>
+                        <th>Wynik</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user_score in users_scores %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ user_score.nickname }}</td>
+                        <td>{{ user_score.location }}</td>
+                        <td>{{ user_score.score }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
     </div>
 {% endblock %}

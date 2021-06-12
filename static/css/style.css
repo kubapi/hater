@@ -91,3 +91,21 @@ h1{
     color: #DC143C;
 }
 /* End email block */
+
+/* Datatables */
+div.dataTables_wrapper div.dataTables_filter input {
+    font-size: 24px;
+}
+
+div.dataTables_wrapper div.dataTables_filter:focus {
+    box-shadow: none
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+    text-align: center;
+}
+/* End datatables */
+
+/* Tinder cards */
+
+/* End tinder cards */
