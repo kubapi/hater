@@ -1,7 +1,8 @@
 from django.contrib import admin
 
-from .models import Category, Blob
+from .models import Card, Deck, User
 
 # Register your models here.
-admin.site.register(Category)
-admin.site.register(Blob)
+admin.site.register(Card)
+admin.site.register(Deck)
+admin.site.register(User)

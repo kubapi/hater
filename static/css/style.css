@@ -2,6 +2,20 @@ body, body * {
     font-family: 'VT323', monospace;
 }
 
+h1{
+    font-weight: bold;
+}
+
+::-moz-selection {
+     background:#DC143C; 
+     color: white;
+}
+
+::selection { 
+    background: #DC143C;
+    color: white;
+ }
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -40,10 +54,14 @@ body, body * {
 
 /* Start about */
 .text-block-center {
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
     top: 50%;
     margin: 5% 25% 5% 25%;
+}
+
+.text-block-center h1{
+    font-size: 30px;
 }
 
 .text-block-center span{
@@ -62,7 +80,10 @@ body, body * {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
 .email-block-email {
+    font-size: 24px;
     color: black;
     text-decoration: none;
 }
