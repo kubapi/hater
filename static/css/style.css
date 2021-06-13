@@ -44,10 +44,21 @@ h1{
 .nav-link:hover{
     color: #DC143C;
 }
+.nav-link:active{
+    color: #DC143C;
+}
 .square {
     color: #DC143C;
 }
 .square {
+    color: black;
+}
+.square::selection {
+    background-color: white;
+    color: black;
+}
+.square::-moz-selection {
+    background-color: white;
     color: black;
 }
 /* End navigation */
@@ -80,7 +91,6 @@ h1{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 
 .email-block-email {
     font-size: 24px;

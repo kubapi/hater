@@ -27,17 +27,17 @@ class Card(models.Model):
     reject_chocice = models.ForeignKey('self', default = False, null = True,on_delete=models.SET_NULL, related_name='reject_chocices', blank=True)
 
     # State represents if should be shown in deck
-    state = models.BooleanField(default = False)
+    is_active = models.BooleanField(default = False)
 
     INFORMATIONAL = 'INFO'
     ACTION = 'ACT'
-    CARD_TYPES = [
+    CATEGORIES = [
         (INFORMATIONAL, 'Informational'),
         (ACTION, 'Action'),
     ]
-    card_type = models.CharField(
+    category = models.CharField(
         max_length = 10,
-        choices = CARD_TYPES,
+        choices = CATEGORIES,
         default = INFORMATIONAL,
     )
 
