@@ -25,9 +25,9 @@
     <nav class="navbar fixed-top navbar-expand-lg">
         <div class="navbar-nav">
             <a class="nav-item nav-link rev-square" href="{% url 'feed:index' %}">&#9632;</a>
-            <span class="nav-item nav-link nickname">Kubinho10</span>
             {% if user.is_authenticated %} 
-                <a class="nav-item nav-link login-logout" href="{% url 'feed:logout' %}">Wyloguj się</a> 
+            <span class="nav-item nav-link nickname">{{ user.username }}</span>
+            <a class="nav-item nav-link login-logout" href="{% url 'feed:logout' %}">Wyloguj się</a> 
             {% else %} 
                 <a class="nav-item nav-link login-logout" href="{% url 'feed:login' %}">Zaloguj się</a> 
             {% endif %} 
@@ -45,7 +45,8 @@
             <a class="nav-item nav-link" href="{% url 'feed:index' %}">Hejter<span>.</span></a>
             <a class="nav-item nav-link" href="{% url 'feed:about' %}">O projekcie</a>
             <a class="nav-item nav-link" href="{% url 'feed:ranking' %}">Ranking</a>
-            {% if user.is_authenticated %} 
+            <!-- To be toggled in Django admin -->
+            {% if user.player.architect %} 
                 <a class="nav-item nav-link" href="{% url 'feed:architect' %}">Architekt</a>
             {% endif %}
             <a class="nav-item nav-link" href="{% url 'feed:contact' %}">Kontakt</a>                

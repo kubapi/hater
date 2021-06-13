@@ -53,5 +53,8 @@ class Player(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     score = models.IntegerField(default = 0)
 
+    architect = models.BooleanField(default = False)
+    # finished_decks = models.ForeignKey(Deck, on_delete=models.PROTECT)
+
     def __str__(self):
         return self.user.username
