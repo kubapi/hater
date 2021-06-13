@@ -63,6 +63,9 @@ def index(request):
         return render(request, 'feed/index.html', {'cards' : cards})
     return render(request, 'feed/index.html', {})
 
+def activate_disactivate(request):
+    return request
+
 @login_required
 def architect(request):
     return render(request, 'feed/architect.html', {})
