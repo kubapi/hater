@@ -25,10 +25,10 @@ class Card(models.Model):
 
     points = models.IntegerField()
 
-    image = models.ImageField(upload_to ='card_image', blank = True)
+    image = models.ImageField(upload_to ='upload/', blank = True)
 
     accept_choice_info = models.CharField(max_length=255, default="Tak")
-    reject_choice_info = models.CharField(max_length=255, default="Nie")
+    reject_choice_info = models.CharField(max_length=255, default="Nie", blank=True)
 
     # Maximum of 2, swipe left means reject swipe left means accept
     accept_choice = models.ForeignKey('self', default = False, null = True, on_delete=models.SET_NULL, related_name='accept_choices', blank=True)

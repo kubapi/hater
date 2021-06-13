@@ -57,13 +57,10 @@ def ranking(request):
 
 @login_required
 def index(request):
-    # Choose random deck try until finds one that fits
-    if Deck.objects.filter(pk=1).exists():
-        for i in range(Deck.objects.all().count()):
-            deck = Deck.objects.order_by('?')[0]
-            if len(deck.get_cards()):
-                cards = deck.get_cards()
-                return render(request, 'feed/index.html', {'cards' : cards})
+    if Deck.objects.all():
+        deck = Deck.objects.order_by('?')[0]
+        cards = deck.get_cards()
+        return render(request, 'feed/index.html', {'cards' : cards})
     return render(request, 'feed/index.html', {})
 
 @login_required
