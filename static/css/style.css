@@ -64,19 +64,13 @@ input {
     font-size: 30px;
     letter-spacing: 0.25px;  
 }
-.nav-link {
+.nav-link, .square {
     color: black;
 }
-.nav-link:hover{
-    color: #DC143C;
-}
-.nav-link:active{
+.nav-link:hover, .nav-link:active, .nav-link:focus{
     color: #DC143C;
 }
 
-.square {
-    color: black;
-}
 .square::selection {
     background-color: white;
     color: black;
