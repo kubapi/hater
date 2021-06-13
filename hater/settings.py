@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-=pqher)qi4#ov%qslv@ed5q48_3_9soivnvi4ooeo%hykau8nu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hejter-app.herokuapp.com']
+ALLOWED_HOSTS = ['hejter-app.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -125,7 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
