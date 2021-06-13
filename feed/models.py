@@ -17,15 +17,18 @@ class Deck(models.Model):
 class Card(models.Model):
     deck = models.ForeignKey(Deck, on_delete = models.CASCADE)
     text = models.TextField()
+    title = models.CharField(default="Tytuł X", max_length=100)
 
-    # TODO Add timing multiplayer (exponential) and choose some non-linear function to serve as a good scaler
     points = models.IntegerField()
 
-    photo = models.ImageField(upload_to ='card_image', blank = True)
+    image = models.ImageField(upload_to ='card_image', blank = True)
+
+    accept_choice_info = models.CharField(max_length=255, default="Tak")
+    reject_choice_info = models.CharField(max_length=255, default="Nie")
 
     # Maximum of 2, swipe left means reject swipe left means accept
     accept_choice = models.ForeignKey('self', default = False, null = True, on_delete=models.SET_NULL, related_name='accept_choices', blank=True)
-    reject_chocice = models.ForeignKey('self', default = False, null = True,on_delete=models.SET_NULL, related_name='reject_chocices', blank=True)
+    reject_choice = models.ForeignKey('self', default = False, null = True,on_delete=models.SET_NULL, related_name='reject_chocices', blank=True)
 
     # State represents if should be shown in deck
     is_active = models.BooleanField(default = False)
@@ -45,11 +48,10 @@ class Card(models.Model):
     def __str__(self):
         return self.text
 
-# class User(models.Model):
-#     nickname = models.CharField(max_length=20, unique=True)
-#     score = models.IntegerField(default = 0)
+# Extending on existing User model from Auth
+class Player(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    score = models.IntegerField(default = 0)
 
-#     # decks_finished = []
-
-#     def __str__(self):
-#         return self.nickname
+    def __str__(self):
+        return self.user.username

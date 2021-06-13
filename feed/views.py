@@ -50,8 +50,8 @@ def about(request):
 
 def ranking(request):
     # Checks if there is at least one record
-    if User.objects.filter(pk=1).exists():
-        users_scores = User.objects.order_by('-score')
+    if Player.objects.filter(pk=1).exists():
+        users_scores = Player.objects.order_by('-score')
         return render(request, 'feed/ranking.html', {'users_scores' : users_scores})
     return render(request, 'feed/index.html', {})
 

@@ -21,7 +21,7 @@
                     {% for user_score in users_scores %}
                     <tr>
                         <td>{{ forloop.counter }}</td>
-                        <td>{{ user_score.nickname }}</td>
+                        <td>{{ user_score.user.username }}</td>
                         <td>{{ user_score.score }}</td>
                     </tr>
                     {% endfor %}
