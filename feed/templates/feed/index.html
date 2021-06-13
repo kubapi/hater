@@ -6,17 +6,26 @@
     <h1>Wynik: 0000000000</h1>
     {% if cards %}
         {% for card in cards %}
-            {% if card.state %}
-            <div class="row">
+            {% if card.is_active %}
+            <div class="row justify-content-center">
                 <div class="col-7 card">
-                    <div class="card-header">Header</div>
+                    <!-- TODO differentiate by category -->
+                    <div class="card-header">
+                        {% if card.category == 'ACT' %}
+                            <h1>Karta akcji</h1>
+                        {% else %}
+                            <h1>Karta informacyjna</h1>
+                        {% endif %}
+                    </div>
                     <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                     <div class="card-body">
                         <p class="card-text">{{ card.text }}</p>
-                        <a href="#" class="btn ">Go somewhere</a>
-                        <a href="#" class="btn ">Go somewhere</a>
+
                     </div>
-                    <div class="card-footer">Footer</div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-dark">Go somewhere</a>
+                        <a href="#" class="btn btn-dark">Go somewhere</a>
+                    </div>
                 </div>
             </div>
             {% endif %}
@@ -25,3 +34,4 @@
 
 </div>
 {% endblock %}
+

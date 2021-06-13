@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Deck(models.Model):
@@ -44,12 +45,11 @@ class Card(models.Model):
     def __str__(self):
         return self.text
 
-class User(models.Model):
-    nickname = models.CharField(max_length=255)
-    location = models.CharField(max_length=255)
-    score = models.IntegerField()
+# class User(models.Model):
+#     nickname = models.CharField(max_length=20, unique=True)
+#     score = models.IntegerField(default = 0)
 
-    # Add decks finished
+#     # decks_finished = []
 
-    def __str__(self):
-        return self.nickname
+#     def __str__(self):
+#         return self.nickname

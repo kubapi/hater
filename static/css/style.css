@@ -6,6 +6,24 @@ h1{
     font-weight: bold;
 }
 
+.link {
+    color: #DC143C;
+    text-decoration: underline;
+}
+
+.link:hover {
+    color: white;
+    background-color: #DC143C;
+    text-decoration: underline;
+}
+
+.btn-dark {
+    font-size: 24px;
+}
+
+input {
+    font-size: 24px !important;
+}
 ::-moz-selection {
      background:#DC143C; 
      color: white;
@@ -28,11 +46,19 @@ h1{
 }
 
 /* Start navigation */
-.navbar{ 
+.fixed-bottom{ 
     background: linear-gradient(0deg, white 40%, rgba(255,255,255,0.2)) no-repeat;
+}
+.fixed-top{ 
+    background: linear-gradient(0deg, rgba(255,255,255,0.2),white 40%) no-repeat;
 }
 .navbar-nav {
     padding: 0 25px 0 25px;
+}
+
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 .nav-item {
     font-size: 30px;
@@ -47,9 +73,7 @@ h1{
 .nav-link:active{
     color: #DC143C;
 }
-.square {
-    color: #DC143C;
-}
+
 .square {
     color: black;
 }
@@ -61,15 +85,37 @@ h1{
     background-color: white;
     color: black;
 }
+
+.rev-square {
+    color: #DC143C;
+}
+
+.rev-square::selection {
+    background-color: white;
+    color: #DC143C;
+}
+.rev-square::-moz-selection {
+    background-color: white;
+    color: #DC143C;
+}
+
+.nickname {
+    color: black;
+}
+.nickname:hover{
+    color: black;
+}
+
 /* End navigation */
 
-/* Start about */
+/* Start about*/
 .text-block-center {
     font-size: 24px;
     text-align: center;
     top: 50%;
     margin: 5% 25% 5% 25%;
 }
+
 
 .text-block-center h1{
     font-size: 30px;
@@ -92,14 +138,6 @@ h1{
     transform: translate(-50%, -50%);
 }
 
-.email-block-email {
-    font-size: 24px;
-    color: black;
-    text-decoration: none;
-}
-.email-block-email:hover {
-    color: #DC143C;
-}
 /* End email block */
 
 /* Datatables */
@@ -117,5 +155,32 @@ div.dataTables_wrapper div.dataTables_filter {
 /* End datatables */
 
 /* Tinder cards */
-
+.card {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 10%;
+    min-height: 350px;
+}
 /* End tinder cards */
+
+/* Start register and login */
+.text-block-center .form-text {
+    font-size: 18px;
+    font-style: italic;
+}
+
+.register-form input, .login-form input {
+    font-size: 24px;
+    margin: 0 auto;
+    float: none;
+    width: 60%;
+}
+
+.register-form .form-label {
+    text-align: left;
+}
+
+.form-text, .form-label {
+    display: none;
+}
+/* End register and login */

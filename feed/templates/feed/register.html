@@ -1,0 +1,16 @@
+{% extends "feed/base.html" %}
+{% load static %}
+
+{% block title %} Rejestracja.{% endblock %}
+{% block content %}
+    {% load django_bootstrap5 %}
+    <div class="row text-block-center">
+        <h1>Rejestracja</h1>
+        <form method="POST" class="form register-form mt-3">
+            {% csrf_token %}
+            {% bootstrap_form register_form %}                    
+            <button class="btn btn-dark mt-3 mb-5" type="submit">Zarejestruj się</button>
+        </form>
+        <p class="text-center">Jeżeli jesteś zarejestrowany, <a class="link" href="{% url 'feed:login' %}">zaloguj się!</a></p>
+    </div>
+{% endblock %}

@@ -14,7 +14,6 @@
                     <tr>
                         <th>Miejsce</th>
                         <th>Pseudonim</th>
-                        <th>Miasto</th>
                         <th>Wynik</th>
                     </tr>
                 </thead>
@@ -23,7 +22,6 @@
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <td>{{ user_score.nickname }}</td>
-                        <td>{{ user_score.location }}</td>
                         <td>{{ user_score.score }}</td>
                     </tr>
                     {% endfor %}
