@@ -1,2 +1,2 @@
-# hater
-Experimental app for hack4lem hackathon that leverages inoculation theory to educate about cyberbullying.
+# Hejter.
+Eksperymentalna aplikacja do hackathonu hack4lem, która wykorzystuje teorię inokulacji do edukacji na temat cyberprzemocy.
