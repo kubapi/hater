@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+
+
 # Create your models here.
 class Deck(models.Model):
     deck_name = models.CharField(max_length=100)
@@ -54,7 +58,13 @@ class Player(models.Model):
     score = models.IntegerField(default = 0)
 
     architect = models.BooleanField(default = False)
-    # finished_decks = models.ForeignKey(Deck, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.user.username
+
+# When User registers signal is send to create a Player object using User instance
+@receiver(post_save, sender=User)
+def update_profile_signal(sender, instance, created, **kwargs):
+    if created:     
+        Player.objects.create(user=instance)
+    instance.player.save()
