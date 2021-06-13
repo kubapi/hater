@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages #import messages
 from django.contrib.auth.forms import AuthenticationForm
+from django.http import JsonResponse
 
 from .models import *
 from .forms import *
@@ -63,8 +64,9 @@ def index(request):
         return render(request, 'feed/index.html', {'cards' : cards})
     return render(request, 'feed/index.html', {})
 
-def activate_disactivate(request):
-    return request
+def activate_card(request):
+    score = request.user.player.score
+    return JsonResponse({'text': score})
 
 @login_required
 def architect(request):

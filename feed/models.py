@@ -15,6 +15,9 @@ class Deck(models.Model):
     def get_cards(self):
         return self.card_set.all()
 
+    def get_active_card(self):
+        return self.card_sett.filter(is_active=True)
+
     class Meta:
         verbose_name_plural = "Decks"
 

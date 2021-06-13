@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="row text-block-center">
-    <h1>Wynik: 0000000000</h1>
+    <h1>Wynik: {{ user.player.score }}</h1>
     {% if cards %}
         {% for card in cards %}
             {% if card.is_active %}
@@ -18,16 +18,15 @@
                     </div>
                     <div class="card-footer">
                         {% if card.category == 'ACTION' %}
-                            <a href="#" class="btn btn-dark">{{ card.reject_choice_info }}</a>
+                            <a id="reject-choice" class="btn btn-dark">{{ card.reject_choice_info }}</a>
                         {% endif %}
-                        <a href="#" class="btn btn-dark">{{ card.accept_choice_info }}</a>
+                        <a id="accept-choice" class="btn btn-dark">{{ card.accept_choice_info }}</a>
                     </div>
                 </div>
             </div>
             {% endif %}
         {% endfor %}
     {% endif %}
-
 </div>
 {% endblock %}
 
