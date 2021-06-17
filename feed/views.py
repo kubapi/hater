@@ -59,14 +59,58 @@ def ranking(request):
 @login_required
 def index(request):
     if Deck.objects.all():
-        deck = Deck.objects.order_by('?')[0]
+        if Deck.objects.filter(is_active = True, is_finished = False):
+            deck = Deck.objects.filter(is_active = True, is_finished = False)[0]
+        elif Deck.objects.filter(is_active = False, is_finished = False):
+            deck = Deck.objects.filter(is_finished = False).order_by('?')[0]
+            deck.is_active = True
+            deck.save()
+        else:
+            return render(request, 'feed/index.html', {})
         cards = deck.get_cards()
         return render(request, 'feed/index.html', {'cards' : cards})
     return render(request, 'feed/index.html', {})
 
-def activate_card(request):
-    score = request.user.player.score
-    return JsonResponse({'text': score})
+# TODO merge reject and accept in one
+def reject_choice(request):
+    if request.method == 'POST':
+        card_id = request.POST.get('reject-choice')
+        card = Card.objects.get(id=card_id)
+        if card.reject_choice: 
+            # Desactivating card
+            card.is_active = False
+            card.save()
+
+            # Adding corresponding score
+            player = Player.objects.get(id = request.user.id)            
+            player.score += card.points
+            player.save()
+
+            # Activating next card
+            next_card = Card.objects.get(id=card.reject_choice.id)
+            next_card.is_active = True
+            next_card.save()
+    return redirect('feed:index')
+
+def accept_choice(request):
+    if request.method == 'POST':
+        card_id = request.POST.get('accept-choice')
+        card = Card.objects.get(id=card_id)
+        if card.accept_choice: 
+            # Desactivating card
+            card.is_active = False
+            card.save()
+
+            # Adding corresponding score
+            player = Player.objects.get(id = request.user.id)            
+            player.score += card.points
+            player.save()
+
+            # Activating next card
+            next_card = Card.objects.get(id=card.accept_choice.id)
+            next_card.is_active = True
+            next_card.save()
+    return redirect('feed:index')
 
 @login_required
 def architect(request):

@@ -19,14 +19,5 @@ $(document).ready(function() {
     
     $('#accept-choice').click(function () {
         console.log("Accept");
-        $.ajax({
-            type: "GET",
-            url: "/aktywuj_karte/",
-            success: function (response) {
-                console.log('success', response.text)
-            }, error: function (error) {
-                console.log('error',error )
-            }
-        })
     });
 } );

@@ -19,6 +19,8 @@ h1{
 
 .btn-dark {
     font-size: 24px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 input {

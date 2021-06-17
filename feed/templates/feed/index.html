@@ -12,15 +12,25 @@
                     <div class="card-header">
                         <h1>{{ card.title }}</h1>
                     </div>
-                    <img class="card-img-top" src="{{ card.image.url }}" alt="">
+                    {% if card.image %}
+                        <img class="card-img-top" src="{{ card.image.url }}" alt="">
+                    {% endif %}
                     <div class="card-body">
                         <p class="card-text">{{ card.text }}</p>
                     </div>
                     <div class="card-footer">
-                        {% if card.category == 'ACTION' %}
-                            <a id="reject-choice" class="btn btn-dark">{{ card.reject_choice_info }}</a>
+                        {% if card.category == 'ACT' %}
+                            <form action="{% url 'feed:reject_choice' %}" method="POST" >
+                                {% csrf_token %}
+                                <input type="hidden" name="reject-choice" value="{{ card.id }}">
+                                <button class="btn btn-dark" type="submit" id="reject-choice"><a>{{ card.reject_choice_info }}</a></button>
+                            </form>
                         {% endif %}
-                        <a id="accept-choice" class="btn btn-dark">{{ card.accept_choice_info }}</a>
+                        <form action="{% url 'feed:accept_choice' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="accept-choice" value="{{ card.id }}">
+                            <button class="btn btn-dark" type="submit"  id="accept-choice"><a>{{ card.accept_choice_info }}</a></button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,8 @@ from django.db.models.signals import post_save
 # Create your models here.
 class Deck(models.Model):
     deck_name = models.CharField(max_length=100)
+    is_active = models.BooleanField(default=False)
+    is_finished = models.BooleanField(default=False)
 
     def __str__(self):
         return self.deck_name
@@ -16,7 +18,7 @@ class Deck(models.Model):
         return self.card_set.all()
 
     def get_active_card(self):
-        return self.card_sett.filter(is_active=True)
+        return self.card_set.filter(is_active=True)
 
     class Meta:
         verbose_name_plural = "Decks"
