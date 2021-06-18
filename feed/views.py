@@ -71,6 +71,9 @@ def index(request):
         return render(request, 'feed/index.html', {'cards' : cards})
     return render(request, 'feed/index.html', {})
 
+def tinder_demo(request):
+    return render(request, 'feed/tinder-demo.html', {})
+
 # TODO merge reject and accept in one
 def reject_choice(request):
     if request.method == 'POST':
@@ -114,4 +117,5 @@ def accept_choice(request):
 
 @login_required
 def architect(request):
-    return render(request, 'feed/architect.html', {})
+    decks = Deck.objects.all()
+    return render(request, 'feed/architect.html', {'decks':decks})

@@ -11,6 +11,8 @@ class Deck(models.Model):
     is_active = models.BooleanField(default=False)
     is_finished = models.BooleanField(default=False)
 
+    image = models.ImageField(upload_to ='upload/', blank = True)
+
     def __str__(self):
         return self.deck_name
 
