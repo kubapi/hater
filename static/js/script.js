@@ -49,8 +49,8 @@ allCards.forEach(function (el) {
     tinderContainer.classList.toggle('tinder_love', event.deltaX > 0);
     tinderContainer.classList.toggle('tinder_nope', event.deltaX < 0);
 
-    var xMulti = event.deltaX * 0.03;
-    var yMulti = event.deltaY / 80;
+    var xMulti = event.deltaX * 0.05;
+    var yMulti = event.deltaY / 90;
     var rotate = xMulti * yMulti;
 
     event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
@@ -62,7 +62,7 @@ allCards.forEach(function (el) {
     tinderContainer.classList.remove('tinder_nope');
 
     var moveOutWidth = document.body.clientWidth;
-    var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
+    var keep = Math.abs(event.deltaX) < 60 || Math.abs(event.velocityX) < 0.5;
 
     event.target.classList.toggle('removed', !keep);
 

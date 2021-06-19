@@ -15,5 +15,4 @@ urlpatterns = [
     path("wylogowywanie/", views.logout_view, name="logout"),
     path("akceptuj/", views.accept_choice, name="accept_choice"),
     path("odrzuc/", views.reject_choice, name="reject_choice"),
-    path("tinder-demo/", views.tinder_demo, name="tinder_demo"),
 ]
