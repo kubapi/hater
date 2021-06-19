@@ -3,17 +3,19 @@
 
 {% block content %}
 <div class="row text-block-center">
-    <h1>Wynik: {{ user.player.score }}</h1>
+    <h1 id="blur-0">Wynik: {{ user.player.score }}</h1>
     {% if cards %}
         {% for card in cards %}
             {% if card.is_active %}
             <div class="row justify-content-center tinder">
                 <div class="tinder--status">
-                    <i class="fa fa-remove"></i>
-                    <i class="fa fa-heart"></i>
+                    {% if card.category == 'ACT' %}
+                        <p id="reject" class="text-remove no-blur">{{ card.reject_choice_info }}</p>
+                    {% endif %}
+                    <p id="accept" class="text-heart no-blur">{{ card.accept_choice_info }}</p>
                 </div>
-                <div class="tinder--cards">
-                    <div class="col-7 tinder--card card">
+                <div  class="tinder--cards">
+                    <div id="blur-1" class="col-7 tinder--card card">
                         <div class="card-header">
                             <h1>{{ card.title }}</h1>
                         </div>
@@ -38,10 +40,6 @@
                             </form>
                         </div>
                     </div>
-                </div>
-                <div class="tinder--buttons">
-                    <button id="nope"><i class="fa fa-remove"></i></button>
-                    <button id="love"><i class="fa fa-heart"></i></button>
                 </div>
             </div>
             {% endif %}
