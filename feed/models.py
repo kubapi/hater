@@ -8,12 +8,19 @@ from django.db.models.signals import post_save
 # Create your models here.
 class Deck(models.Model):
     deck_name = models.CharField(max_length=100)
+    is_active = models.BooleanField(default=False)
+    is_finished = models.BooleanField(default=False)
+
+    image = models.ImageField(upload_to ='upload/', blank = True)
 
     def __str__(self):
         return self.deck_name
 
     def get_cards(self):
         return self.card_set.all()
+
+    def get_active_card(self):
+        return self.card_set.filter(is_active=True)
 
     class Meta:
         verbose_name_plural = "Decks"

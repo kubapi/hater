@@ -13,4 +13,6 @@ urlpatterns = [
     path("rejestracja/", views.register_view, name="register"),
     path("logowanie/", views.login_view, name="login"),
     path("wylogowywanie/", views.logout_view, name="logout"),
+    path("akceptuj/", views.accept_choice, name="accept_choice"),
+    path("odrzuc/", views.reject_choice, name="reject_choice"),
 ]

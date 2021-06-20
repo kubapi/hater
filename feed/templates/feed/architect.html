@@ -6,8 +6,21 @@
     <div class="row text-block-center">
         <h1>Architekt</h1>
         <p>
-            Ten tryb pozwala edytować zadania w wizualnym edytorze.
+            Ten tryb pozwala edytować zadania w wizualnym edytorze. 
         </p>
+        <img src="{% static 'images/in-progress.jpg'%}" alt="">
+        <!-- <div class="row justify-content-center">
+            {% for deck in decks %}
+                <div class="col-7 card">
+                    <div class="card-header">
+                        <h1>{{ deck.deck_name }}</h1>
+                    </div>
+                    {% if deck.image %}
+                        <img class="card-img-top" src="{{ deck.image.url }}" alt="">
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div> -->
     </div>
 {% endblock %}
 
